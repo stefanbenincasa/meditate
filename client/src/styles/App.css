@@ -1,0 +1,135 @@
+/* Blocks */
+
+:root {
+  --primary-color: #9EE493;
+  --secondary-color: #DAF7DC;
+}
+
+html, body, div[id="root"] {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+nav {
+  height: 2.5rem; width: 2.5rem;
+  position: fixed;
+  top: 21px; right: 21px;
+  box-shadow: 2px 1px 21px var(--primary-color);
+  cursor: pointer;
+}
+
+/* Elements */
+
+#App {
+  height: 100vh;
+  width: 100vw;
+}
+
+#Beacon {
+  height: 100%;
+  width: 50%;
+  border: 5px solid var(--primary-color);  
+}
+#Beacon button {
+  height: 50%;
+  width: 50%;
+
+  display: block;
+  outline: none;
+  background-color: var(--secondary-color);
+  border: 5px solid var(--primary-color);  
+  border-radius: 50%;
+}
+
+
+/* Modifiers */
+
+.error {
+  border: 2px solid var(--accent-color);
+  background-color: var(--accent-color);
+  color: white;
+  box-shadow: none;
+}
+
+.error-suggestion {
+  border: 3px solid var(--accent-color);
+  color: var(--accent-color);
+  box-shadow: none;
+}
+
+.meditate {
+  animation-name: meditate;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-delay: 0s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+} 
+.grow {
+  transform: scale(1.5, 1.5);
+  transition: transform 2s ease-in-out; 
+}
+.shrink {
+  transform: scale(1, 1);
+  transition: transform 2s ease-in-out; 
+}
+
+
+.bg-primary {
+  background-color: var(--primary-color) !important;
+}
+.btn-primary {
+  background-color: var(--primary-color) !important;
+  border: none;
+}
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+.btn-secondary { 
+  background-color: var(--secondary-color) !important;
+  border: none;
+}
+
+.text-danger {
+  color: var(--accent-color) !important;
+}
+
+/* Animation */
+@keyframes meditate {
+  33% { transform: scale(1, 1); }
+  66% { transform: scale(1.5, 1.5); }
+  100% { transform: scale(1, 1); }
+}
+
+/* 
+  Media Queries 
+  @media screen and (min-width: 0px) and (max-width: 576px) {
+    :root { font-size: 0.75rem; }
+  }
+
+  @media screen and (min-width: 577px) and (max-width: 768px) {
+    :root { font-size: 0.88rem; }
+  }
+
+  @media screen and (min-width: 769px) and (max-width: 1365px) {
+    :root { font-size: 0.88rem; }
+  }
+
+  @media screen and (min-width: 1366px) {
+    :root { font-size: 0.88rem; }
+  }
+
+
+  @media screen and (min-height: 0px) and (max-height: 300px) and (min-width: 1366px) {
+    :root { font-size: 0.5rem; }
+  }
+
+  @media screen and (min-height: 301px) and (max-height: 600px) and (min-width: 1366px) {
+    :root { font-size: 0.75rem; }
+  }
+*/
