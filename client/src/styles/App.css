@@ -31,7 +31,7 @@ nav {
 
 #Beacon {
   height: 100%;
-  width: 50%;
+  width: 66%;
   border: 5px solid var(--primary-color);  
 }
 #Beacon button {
@@ -69,15 +69,6 @@ nav {
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
 } 
-.grow {
-  transform: scale(1.5, 1.5);
-  transition: transform 2s ease-in-out; 
-}
-.shrink {
-  transform: scale(1, 1);
-  transition: transform 2s ease-in-out; 
-}
-
 
 .bg-primary {
   background-color: var(--primary-color) !important;
