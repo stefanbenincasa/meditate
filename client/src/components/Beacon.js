@@ -12,8 +12,9 @@ function Beacon() {
 
   const { isMeditating, setIsMeditating } = useContext(Context)
 
-  useEffect(() => {
+  const toggleMeditation = function(e) {
     let newMeditationClasses
+
     if(isMeditating) {
       newMeditationClasses = meditationClasses.filter(item => item != 'meditate')
     }
@@ -23,21 +24,7 @@ function Beacon() {
     }
 
     setMeditationClasses(newMeditationClasses)
-    
-  }, [isMeditating])
-
-  const toggleMeditation = function(e) {
     setIsMeditating(currentState => !currentState)
-  }
-
-  const removeClass = function(currentClasses, classForRemoval) {
-    if(!currentClasses) return []
-    return currentClasses.filter(classs => classs != classForRemoval)
-  }
-
-  const addClass = function(currentClasses, classForAddition) {
-    if(!currentClasses) return []
-    return currentClasses.push(classForAddition)
   }
 
   return (
