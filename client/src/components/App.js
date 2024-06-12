@@ -1,18 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-router-dom'
+import { Context } from './Context'
 
 import Beacon from './Beacon'
 import Icon from './Icon'
 
-import '../styles/App.css';
+import '../styles/App.css'
 
 /*
  
    To Do
    
-   [] Context API implementation
+   [X] Context API implementation
+   [X] Main meditation element
 
-   X[] Main meditation element
    [] Toggles for colors and sound-effects
    [] Advertisement integration; ethically
    [] Responsiveness; for now, handle mobile case with Error
@@ -22,12 +23,15 @@ import '../styles/App.css';
 function App() {
   const [ isMeditating, setIsMeditating ] = useState(false)
 
+  const appClasses = 'p-5 m-auto container-fluid d-flex flex-column align-items-center justify-content-center'
+
   return (
-    <div id="App" className="p-5 m-auto container-fluid d-flex flex-column align-items-center justify-content-center">
-      <Beacon />
-    </div>
+    <Context.Provider value={{ isMeditating, setIsMeditating }}>
+      <div id='App' className={appClasses}>
+        <Beacon />
+      </div>
+    </Context.Provider>
   )
 }
 
 export default App;
-
