@@ -6,7 +6,7 @@ import '../styles/App.css'
 
 function Beacon() {
   const [ buttonClasses, setButtonClasses ] = useState('')
-  const [ meditationClasses, setMeditationClasses ] = useState(['h-50', 'w-50'])
+  const [ meditationClasses, setMeditationClasses ] = useState(['h-50', 'w-25'])
 
   const { isMeditating, setIsMeditating } = useContext(Context)
 
