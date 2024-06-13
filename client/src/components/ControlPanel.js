@@ -7,25 +7,25 @@ import Config from '../assets/config.json'
 import '../styles/App.css'
 
 // To Do:
-// Color change options toggle
-// Sound effect change toggle 
+// Color change options toggle [X]
+// Sound effect change toggle []
 
-function ControlPanel() {
+export default function ControlPanel() {
     const [ soundEffect, setSoundEffect ] = useState()
 
     const { theme, setTheme } = useContext(Context)
 
     return (
         <nav className='ControlPanel row w-75 mx-auto'>
-            <div className='col-6'>
-                <div className='row'>
-                    <label className='col-3 p-4 bg-secondary text-white d-flex flex-column justify-content-center align-items-center'>Colors</label>
-
+            <div className='col-8 h-100'>
+                <div className='row h-100'>
+                    <label className='col-4 p-4 bg-secondary text-white d-flex flex-column justify-content-center align-items-center'>X</label>
                     { 
                         Config.colors.map((color, index) => {
                             return (
-                                <button key={index} 
-                                className='col-3 d-inline-block border' 
+                                <button 
+                                key={index} 
+                                className='col-2 d-inline-block border' 
                                 style={{ backgroundColor: color }}
                                 onClick={() => setTheme(color)}>
                                 </button>
@@ -34,8 +34,17 @@ function ControlPanel() {
                     }
                 </div>
             </div>
+
+            <div className='col'></div>
+
+            <div className='col-1'>
+                <div className='row'>
+                    <button 
+                    className='col-12 p-4 bg-secondary text-white d-flex flex-column justify-content-center align-items-center'>
+                        Mute
+                    </button>
+                </div> 
+            </div>
         </nav>     
     )
 }
-
-export default ControlPanel
