@@ -14,14 +14,6 @@ html, body, div[id="root"] {
   font-size: 1rem;
 }
 
-nav {
-  height: 2.5rem; width: 2.5rem;
-  position: fixed;
-  top: 21px; right: 21px;
-  box-shadow: 2px 1px 21px var(--primary-color);
-  cursor: pointer;
-}
-
 /* Elements */
 
 #App {
@@ -30,14 +22,9 @@ nav {
 }
 
 #Beacon {
-  height: 100%;
-  width: 66%;
-  border: 5px solid var(--primary-color);  
+
 }
 #Beacon button {
-  height: 50%;
-  width: 50%;
-
   display: block;
   outline: none;
   background-color: var(--secondary-color);
@@ -47,6 +34,17 @@ nav {
 
 
 /* Modifiers */
+.bg-primary {
+  background-color: var(--primary-color) !important;
+}
+.btn-primary {
+  background-color: var(--primary-color) !important;
+  border: none;
+}
+.btn-secondary { 
+  background-color: var(--secondary-color) !important;
+  border: none;
+}
 
 .error {
   border: 2px solid var(--accent-color);
@@ -70,20 +68,12 @@ nav {
   animation-fill-mode: forwards;
 } 
 
-.bg-primary {
-  background-color: var(--primary-color) !important;
-}
-.btn-primary {
-  background-color: var(--primary-color) !important;
-  border: none;
-}
-.text-primary {
-  color: var(--primary-color) !important;
+.overflow-x-scroll {
+  overflow-x: scroll;
 }
 
-.btn-secondary { 
-  background-color: var(--secondary-color) !important;
-  border: none;
+.text-primary {
+  color: var(--primary-color) !important;
 }
 
 .text-danger {
