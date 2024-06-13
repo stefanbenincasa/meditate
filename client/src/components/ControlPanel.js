@@ -9,12 +9,13 @@ import '../styles/App.css'
 // To Do:
 // Color change options toggle
 // Sound effect change toggle 
+
 function ControlPanel() {
     const [ colors, setColors ] = useState([])
     const [ soundEffects, setSoundEffects ] = useState([])
     
     return (
-        <nav className='row w-75 mx-auto'>
+        <nav className='ControlPanel row w-75 mx-auto'>
             <div className='col-6'>
                 <div className='row'>
                     <label className='col-3 bg-secondary text-white d-flex flex-column justify-content-center align-items-center'>Colors</label>

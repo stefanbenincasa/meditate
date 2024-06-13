@@ -29,11 +29,11 @@ function App() {
     console.log(isMeditating)
   }, [isMeditating])
 
-  const appClasses = 'p-5 m-auto container-fluid d-flex flex-column align-items-center justify-content-center'
+  const appClasses = 'App p-5 m-auto container-fluid d-flex flex-column align-items-center justify-content-center'
 
   return (
     <Context.Provider value={{ isMeditating, setIsMeditating }}>
-      <div id='App' className={appClasses}>
+      <div className={appClasses}>
         <ControlPanel />
         <Beacon />
       </div>

@@ -28,7 +28,7 @@ function Beacon() {
   }
 
   return (
-    <div id='Beacon' className='h-75 w-75 p-5 mx-auto container-fluid d-flex flex-column align-items-center justify-content-center'>
+    <div className='Beacon h-75 w-75 p-5 mx-auto container-fluid d-flex flex-column align-items-center justify-content-center'>
       <button className={meditationClasses.join(' ')} onClick={toggleMeditation}>
         Sample Text
       </button>
