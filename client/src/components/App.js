@@ -4,7 +4,6 @@ import { Context } from './Context'
 
 import Beacon from './Beacon'
 import ControlPanel from './ControlPanel'
-import Icon from './Icon'
 
 import '../styles/App.css'
 

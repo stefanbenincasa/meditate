@@ -2,7 +2,6 @@ import React, { useEffect, useState, useContext, useRef } from 'react'
 import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-router-dom'
 
 import { Context } from './Context'
-import { Icon } from './Icon.js'
 
 import '../styles/App.css'
 
