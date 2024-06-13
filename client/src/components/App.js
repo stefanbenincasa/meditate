@@ -4,6 +4,7 @@ import { Context } from './Context'
 
 import Beacon from './Beacon.js'
 import ControlPanel from './ControlPanel.js'
+import Config from '../assets/config.json'
 
 import '../styles/App.css'
 
@@ -22,17 +23,17 @@ import '../styles/App.css'
 */
 
 function App() {
+  const [ appClasses, setAppClasses] = useState(['App p-5 m-auto container-fluid d-flex flex-column align-items-center justify-content-center'])
   const [ isMeditating, setIsMeditating ] = useState(false)
+  const [ theme, setTheme ] = useState(Config.colors[0])
 
   useEffect(() => {
-    console.log(isMeditating)
-  }, [isMeditating])
-
-  const appClasses = 'App p-5 m-auto container-fluid d-flex flex-column align-items-center justify-content-center'
+    console.log(theme)
+  }, [theme])
 
   return (
-    <Context.Provider value={{ isMeditating, setIsMeditating }}>
-      <div className={appClasses}>
+    <Context.Provider value={{ theme, isMeditating, setIsMeditating, setTheme }}>
+      <div className={appClasses.join(' ')} style={{ backgroundColor: theme }}>
         <ControlPanel />
         <Beacon />
       </div>

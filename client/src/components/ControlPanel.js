@@ -11,19 +11,27 @@ import '../styles/App.css'
 // Sound effect change toggle 
 
 function ControlPanel() {
-    const [ color, setColor ] = useState(['red', 'blue', 'green'])
-    const [ soundEffect, setSoundEffect ] = useState([])
+    const [ soundEffect, setSoundEffect ] = useState()
 
-    useEffect(() => {
-        console.log(Config.colors)
-    }, [])
-    
+    const { theme, setTheme } = useContext(Context)
+
     return (
         <nav className='ControlPanel row w-75 mx-auto'>
             <div className='col-6'>
                 <div className='row'>
                     <label className='col-3 p-4 bg-secondary text-white d-flex flex-column justify-content-center align-items-center'>Colors</label>
-                    { Config.colors.map((color, index) => <button key={index} className='col-3 d-inline-block border' style={{ backgroundColor: color}}></button> ) }
+
+                    { 
+                        Config.colors.map((color, index) => {
+                            return (
+                                <button key={index} 
+                                className='col-3 d-inline-block border' 
+                                style={{ backgroundColor: color }}
+                                onClick={() => setTheme(color)}>
+                                </button>
+                            )
+                        })
+                    }
                 </div>
             </div>
         </nav>     
