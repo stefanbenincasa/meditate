@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-router-dom'
 import { Context } from './Context'
 
-import Beacon from './Beacon'
-import ControlPanel from './ControlPanel'
+import Beacon from './Beacon.js'
+import ControlPanel from './ControlPanel.js'
 
 import '../styles/App.css'
 
