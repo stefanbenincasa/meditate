@@ -22,7 +22,7 @@ import '../styles/App.css'
     <SFXSwitch />
 */
 
-function App() {
+export default function App() {
   const [ appClasses, setAppClasses] = useState(['App p-5 m-auto container-fluid d-flex flex-column align-items-center justify-content-center'])
   const [ isMeditating, setIsMeditating ] = useState(false)
   const [ theme, setTheme ] = useState(Config.colors[0])
@@ -40,5 +40,3 @@ function App() {
     </Context.Provider>
   )
 }
-
-export default App;

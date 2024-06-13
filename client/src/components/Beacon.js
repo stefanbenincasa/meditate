@@ -4,7 +4,7 @@ import { Context } from './Context'
 
 import '../styles/App.css'
 
-function Beacon() {
+export default function Beacon() {
   const [ buttonClasses, setButtonClasses ] = useState('')
   const [ meditationClasses, setMeditationClasses ] = useState(['h-50', 'w-25'])
 
@@ -33,6 +33,3 @@ function Beacon() {
     </div>
   )
 }
-
-export default Beacon
-
