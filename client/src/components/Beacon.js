@@ -8,7 +8,7 @@ import '../styles/App.css'
 
 function Beacon() {
   const [ buttonClasses, setButtonClasses ] = useState('')
-  const [ meditationClasses, setMeditationClasses ] = useState([])
+  const [ meditationClasses, setMeditationClasses ] = useState(['h-50', 'w-50'])
 
   const { isMeditating, setIsMeditating } = useContext(Context)
 
@@ -29,7 +29,7 @@ function Beacon() {
 
   return (
     <div id='Beacon' className='h-75 w-75 p-5 mx-auto container-fluid d-flex flex-column align-items-center justify-content-center'>
-      <button className={meditationClasses.join(' ') + 'h-50 w-50'} onClick={toggleMeditation}>
+      <button className={meditationClasses.join(' ')} onClick={toggleMeditation}>
         Sample Text
       </button>
     </div>
