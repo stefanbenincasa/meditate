@@ -9,6 +9,9 @@ import '../styles/App.css'
 export default function AudioPlayer() {
   const [ audioPlayerClasses, setAudioPlayerClasses ] = useState(['AudioPlayer'])
 
+  // Should: render all necessary audio files to match presented themes via color
+  
+  // Import audio sources, then render in appropriate <audio> element with <source>
   return (
     <div className={audioPlayerClasses.join(' ')}>
       

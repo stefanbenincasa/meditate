@@ -15,7 +15,8 @@ import '../styles/App.css'
    
    [X] Context API implementation
    [X] Main meditation element
-   [] Toggles for colors and sound-effects
+   [X] Toggles for colors 
+   [] Play sound inline with theme 
 
    [] Advertisement integration; ethically
    [] Responsiveness; for now, handle mobile case with Error
@@ -43,8 +44,8 @@ export default function App() {
     <Context.Provider value={{ theme, isMuted, isMeditating, setIsMeditating, setTheme, setIsMuted }}>
       <div className={appClasses.join(' ')} style={{ backgroundColor: theme }}>
         <ControlPanel />
-        <Beacon />
         <AudioPlayer />
+        <Beacon />
       </div>
     </Context.Provider>
   )
