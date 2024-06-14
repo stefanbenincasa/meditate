@@ -9,19 +9,25 @@ import '../styles/App.css'
 export default function ControlPanel() {
     const { theme, isMuted, setTheme, setIsMuted } = useContext(Context)
 
+    // Find the appropriate theme for selected color
+    const handleColorChange = function(color) {
+        let matchedTheme = Config.themes.find(theme => theme.color === color)
+        setTheme(matchedTheme)
+    }
+
     return (
         <nav className='ControlPanel row w-75 mx-auto'>
             <div className='col-8 h-100'>
                 <div className='row h-100'>
                     <label className='col-4 p-4 bg-secondary text-white d-flex flex-column justify-content-center align-items-center'>X</label>
                     { 
-                        Config.colors.map((color, index) => {
+                        Config.themes.map(theme => theme.color).map((color, index) => {
                             return (
                                 <button 
                                 key={index} 
                                 className='col-2 d-inline-block border' 
                                 style={{ backgroundColor: color }}
-                                onClick={() => setTheme(color)}>
+                                onClick={() => handleColorChange(color)}>
                                 </button>
                             )
                         })

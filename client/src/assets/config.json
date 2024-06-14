@@ -1,5 +1,8 @@
 {
-  "theme": [ "water", "wind", "fire", "earth" ],
-  "colors": [ "#004197", "#02894B", "#df265e", "#a56729" ],
-  "soundEffects": [ "fireplace.mp3", "running_water.mp3", "tibetan-bowl.mp3", "wind-in-trees-chimes.mp3" ]
+  "themes": [
+    { "name": "water", "color": "#004197", "soundEffect": "running-water.mp3" },
+    { "name": "wind", "color": "#02894B", "soundEffect": "wind-in-trees-chimes.mp3" },
+    { "name": "fire", "color": "#df265e", "soundEffect": "fireplace.mp3" },
+    { "name": "earth", "color": "#a56729", "soundEffect": "tibetan-bowl.mp3" }
+  ]
 }

@@ -26,7 +26,7 @@ import '../styles/App.css'
 export default function App() {
   const [ isMeditating, setIsMeditating ] = useState(false)
   const [ isMuted, setIsMuted ] = useState(false)
-  const [ theme, setTheme ] = useState(Config.colors[0])
+  const [ theme, setTheme ] = useState(Config.themes[0])
 
   const [ appClasses, setAppClasses] = useState(['App'])
 
@@ -42,7 +42,7 @@ export default function App() {
 
   return (
     <Context.Provider value={{ theme, isMuted, isMeditating, setIsMeditating, setTheme, setIsMuted }}>
-      <div className={appClasses.join(' ')} style={{ backgroundColor: theme }}>
+      <div className={appClasses.join(' ')} style={{ backgroundColor: theme.color }}>
         <ControlPanel />
         <AudioPlayer />
         <Beacon />
