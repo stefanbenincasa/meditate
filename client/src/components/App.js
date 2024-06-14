@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-router-dom'
 import { Context } from './Context'
 
-import Beacon from './Beacon.js'
+import Meditator from './Meditator.js'
 import ControlPanel from './ControlPanel.js'
 import AudioPlayer from './AudioPlayer.js'
 import Config from '../assets/config.json'
@@ -45,7 +45,7 @@ export default function App() {
       <div className={appClasses.join(' ')} style={{ backgroundColor: theme.color }}>
         <ControlPanel />
         <AudioPlayer />
-        <Beacon />
+        <Meditator />
       </div>
     </Context.Provider>
   )

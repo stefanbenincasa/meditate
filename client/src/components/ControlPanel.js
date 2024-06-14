@@ -9,8 +9,8 @@ import '../styles/App.css'
 export default function ControlPanel() {
     const { theme, isMuted, setTheme, setIsMuted } = useContext(Context)
 
-    // Find the appropriate theme for selected color
     const handleColorChange = function(color) {
+        // Find the appropriate theme for selected color
         let matchedTheme = Config.themes.find(theme => theme.color === color)
         setTheme(matchedTheme)
     }

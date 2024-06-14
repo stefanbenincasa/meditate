@@ -4,7 +4,7 @@ import { Context } from './Context'
 
 import '../styles/App.css'
 
-export default function Beacon() {
+export default function Meditator() {
   const [ meditationClasses, setMeditationClasses ] = useState(['h-50', 'w-25'])
 
   const { theme, isMuted, isMeditating, setIsMeditating } = useContext(Context)
