@@ -4,6 +4,7 @@ import { Context } from './Context'
 
 import Beacon from './Beacon.js'
 import ControlPanel from './ControlPanel.js'
+import AudioPlayer from './AudioPlayer.js'
 import Config from '../assets/config.json'
 
 import '../styles/App.css'
@@ -43,6 +44,7 @@ export default function App() {
       <div className={appClasses.join(' ')} style={{ backgroundColor: theme }}>
         <ControlPanel />
         <Beacon />
+        <AudioPlayer />
       </div>
     </Context.Provider>
   )
