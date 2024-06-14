@@ -8,7 +8,6 @@ import '../styles/App.css'
 
 // To Do:
 // Color change options toggle [X]
-// Sound effect change toggle []
 
 export default function ControlPanel() {
     const [ soundEffect, setSoundEffect ] = useState()

@@ -19,7 +19,6 @@ import '../styles/App.css'
    [] Advertisement integration; ethically
    [] Responsiveness; for now, handle mobile case with Error
 
-    <SFXSwitch />
 */
 
 export default function App() {
