@@ -6,13 +6,8 @@ import Config from '../assets/config.json'
 
 import '../styles/App.css'
 
-// To Do:
-// Color change options toggle [X]
-
 export default function ControlPanel() {
-    const [ soundEffect, setSoundEffect ] = useState()
-
-    const { theme, setTheme } = useContext(Context)
+    const { theme, isMuted, setTheme, setIsMuted } = useContext(Context)
 
     return (
         <nav className='ControlPanel row w-75 mx-auto'>
@@ -39,7 +34,8 @@ export default function ControlPanel() {
             <div className='col-1'>
                 <div className='row'>
                     <button 
-                    className='col-12 p-4 bg-secondary text-white d-flex flex-column justify-content-center align-items-center'>
+                    className='col-12 p-4 bg-secondary text-white d-flex flex-column justify-content-center align-items-center'
+                    onClick={() => setIsMuted(currentStatus => !currentStatus)}>
                         Mute
                     </button>
                 </div> 

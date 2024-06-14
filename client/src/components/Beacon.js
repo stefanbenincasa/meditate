@@ -8,7 +8,7 @@ export default function Beacon() {
   const [ buttonClasses, setButtonClasses ] = useState('')
   const [ meditationClasses, setMeditationClasses ] = useState(['h-50', 'w-25'])
 
-  const { isMeditating, setIsMeditating } = useContext(Context)
+  const { theme, isMuted, isMeditating, setIsMeditating } = useContext(Context)
 
   const toggleMeditation = function(e) {
     let newMeditationClasses

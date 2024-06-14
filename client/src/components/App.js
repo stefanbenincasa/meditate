@@ -22,16 +22,24 @@ import '../styles/App.css'
 */
 
 export default function App() {
-  const [ appClasses, setAppClasses] = useState(['App p-5 m-auto container-fluid d-flex flex-column align-items-center justify-content-center'])
   const [ isMeditating, setIsMeditating ] = useState(false)
+  const [ isMuted, setIsMuted ] = useState(false)
   const [ theme, setTheme ] = useState(Config.colors[0])
 
+  const [ appClasses, setAppClasses] = useState(['App'])
+
+  // Initialisation
   useEffect(() => {
-    console.log(theme)
-  }, [theme])
+    setAppClasses(currentClasses => {
+      return [ 
+        ...currentClasses, 
+        'p-5 m-auto container-fluid d-flex flex-column align-items-center justify-content-center'
+      ]
+    })
+  }, [setTheme])
 
   return (
-    <Context.Provider value={{ theme, isMeditating, setIsMeditating, setTheme }}>
+    <Context.Provider value={{ theme, isMuted, isMeditating, setIsMeditating, setTheme, setIsMuted }}>
       <div className={appClasses.join(' ')} style={{ backgroundColor: theme }}>
         <ControlPanel />
         <Beacon />
