@@ -4,29 +4,25 @@ import { Context } from './Context'
 
 import '../styles/App.css'
 
-export default function Meditator() {
+export default function Meditator({audioPlayerRef}) {
   const [ meditationClasses, setMeditationClasses ] = useState(['h-50', 'w-25'])
 
-  const { theme, isMuted, isMeditating, setIsMeditating } = useContext(Context)
+  const { theme, isMuted, isPlayingAudio, isMeditating, setIsMeditating } = useContext(Context)
 
-  const toggleMeditation = function(e) {
-    let newMeditationClasses
-
-    if(isMeditating) {
-      newMeditationClasses = meditationClasses.filter(item => item != 'meditate')
-    }
-    else {
-      meditationClasses.push('meditate')
-      newMeditationClasses = [ ...meditationClasses ]
+  // Meditation status and muted status determines audio activation 
+  // Then, play sound effect file associated with selected theme
+  // I.e. that audio is played, and what specifically is to be played
+  const handleMeditationClick = function(theme, isMuted, isMeditating) {
+    if(!isMeditating) {
+      // Commence mediation animation
+      // Play relevant audio to selected theme; if not muted
     }
 
-    setMeditationClasses(newMeditationClasses)
-    setIsMeditating(currentState => !currentState)
   }
 
   return (
     <div className='Beacon h-75 w-75 p-5 mt-4 mx-auto container-fluid border d-flex flex-column align-items-center justify-content-center'>
-      <button className={meditationClasses.join(' ')} onClick={toggleMeditation}>
+      <button className={meditationClasses.join(' ')} onClick={() => handleMeditationClick(theme, isMuted, isMeditating)}>
         Meditate
       </button>
     </div>
