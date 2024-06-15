@@ -1,11 +1,5 @@
-import runningWaterAudioPath from '../assets/soundFX/running-water.mp3'
-import windInTreesAudioPath from '../assets/soundFX/wind-in-trees-chimes.mp3'
-import fireplaceAudioPath from '../assets/soundFX/fireplace.mp3'
-import tibetanBowlAudioPath from '../assets/soundFX/tibetan-bowl.mp3'
-
 import React, { useEffect, useState, useContext, useRef } from 'react'
 import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-router-dom'
-import { Howl, Howler } from 'howler';
 
 import Config from '../assets/config.json'
 
