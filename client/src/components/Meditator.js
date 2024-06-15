@@ -7,8 +7,6 @@ import '../styles/App.css'
 export default function Meditator({audioPlayerRef}) {
   const [ meditationClasses, setMeditationClasses ] = useState(['h-50', 'w-25'])
 
-  const { theme, isMuted, isPlayingAudio, isMeditating, setIsMeditating } = useContext(Context)
-
   // Meditation status and muted status determines audio activation 
   // Then, play sound effect file associated with selected theme
   // I.e. that audio is played, and what specifically is to be played

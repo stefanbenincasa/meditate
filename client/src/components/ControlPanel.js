@@ -1,17 +1,14 @@
 import React, { useEffect, useState, useContext, useRef } from 'react'
 import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-router-dom'
-import { Context } from './Context'
 
 import Config from '../assets/config.json'
 
 import '../styles/App.css'
 
-export default function ControlPanel() {
-    const { theme, isMuted, setTheme, setIsMuted } = useContext(Context)
+export default function ControlPanel({setIsMuted, setTheme}) {
 
     const handleColorChange = function(color) {
-        // Find the appropriate theme for selected color
-        let matchedTheme = Config.themes.find(theme => theme.color === color)
+        let matchedTheme = Config.themes.find(theme => theme.color === color) // Find the appropriate theme for selected color
         setTheme(matchedTheme)
     }
 

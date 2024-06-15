@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-router-dom'
-import { Context } from './Context'
+
+import { Context } from './Context.js'
 
 import Meditator from './Meditator.js'
 import ControlPanel from './ControlPanel.js'
@@ -29,6 +30,7 @@ export default function App() {
   const [ isPlayingAudio, setIsPlayingAudio ] = useState(false)
   const [ isMuted, setIsMuted ] = useState(false)
   const [ theme, setTheme ] = useState(Config.themes[0])
+  const [ audioSrc, setAudioSrc ] = useState('')
 
   const audioPlayerRef = useRef(null)
 
@@ -45,11 +47,13 @@ export default function App() {
   }, [setTheme])
 
   return (
-    <Context.Provider value={{ theme, isMuted, isMeditating, isPlayingAudio, setIsMeditating, setIsPlayingAudio, setTheme, setIsMuted }}>
+    <Context.Provider 
+    value={{ theme, isMuted, 
+    isMeditating, isPlayingAudio, setIsMeditating, setIsPlayingAudio, setIsMuted }}>
       <div className={appClasses.join(' ')} style={{ backgroundColor: theme.color }}>
-        <ControlPanel />
+        <ControlPanel setIsMuted={setIsMuted} setTheme={setTheme}/>
+        <Meditator theme={theme} isMuted={isMuted} isMeditating={isMeditating} setAudioSrc={setAudioSrc} audioPlayerRef={audioPlayerRef} />
         <AudioPlayer audioPlayerRef={audioPlayerRef} />
-        <Meditator audioPlayerRef={audioPlayerRef} />
       </div>
     </Context.Provider>
   )
