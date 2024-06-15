@@ -37,6 +37,7 @@ export default function AudioPlayer({theme, isPlayingAudio}) {
   }
 
   useEffect(() => {
+    if(isPlayingAudio) audioPlayerRef.current.play()
   }, [isPlayingAudio])
 
   return (

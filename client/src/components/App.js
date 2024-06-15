@@ -49,7 +49,7 @@ export default function App() {
     isMeditating, isPlayingAudio, setIsMeditating, setIsPlayingAudio, setIsMuted }}>
       <div className={appClasses.join(' ')} style={{ backgroundColor: theme.color }}>
         <ControlPanel setIsMuted={setIsMuted} setTheme={setTheme} />
-        <Meditator theme={theme} isMuted={isMuted} isMeditating={isMeditating} setIsMeditating={setIsMeditating} setIsPlayingAudio={setIsPlayingAudio} />
+        <Meditator isMuted={isMuted} isMeditating={isMeditating} setIsMeditating={setIsMeditating} setIsPlayingAudio={setIsPlayingAudio} />
         <AudioPlayer theme={theme} isPlayingAudio={isPlayingAudio} />
       </div>
     </Context.Provider>
