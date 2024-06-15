@@ -6,24 +6,19 @@ import Config from '../assets/config.json'
 import '../styles/App.css'
 
 // Depending on current theme, render approprate audio source
-export default function AudioPlayer({audioPlayerRef, audioSrc}) {
-  // const audioContext = new AudioContext();
-  
-  // get the audio element
-  // const audioElement = document.querySelector("audio");
+export default function AudioPlayer({audioSrc, isPlayingAudio}) {
+  const audioPlayerRef = useRef(null)
+  const audioContext = new AudioContext();
 
-  // pass it into the audio context
-  // const track = audioContext.createMediaElementSource(audioElement);
-
-  // Some calculation will determine audio element returned, and thus the application of
-  // the 'audioPlayerRef'
+  useEffect(() => {
+    console.log(audioSrc)
+  }, [isPlayingAudio])
 
   return (
     <div className='AudioPlayer'>
-      <audio muted loop ref={audioPlayerRef}> 
+      <audio ref={audioPlayerRef}> 
         <source src={audioSrc} type='audio/mpeg'></source> 
       </audio>
     </div>
   )
 }
-

@@ -27,12 +27,10 @@ import '../styles/App.css'
 
 export default function App() {
   const [ isMeditating, setIsMeditating ] = useState(false)
-  const [ isPlayingAudio, setIsPlayingAudio ] = useState(false)
   const [ isMuted, setIsMuted ] = useState(false)
-  const [ theme, setTheme ] = useState(Config.themes[0])
+  const [ isPlayingAudio, setIsPlayingAudio ] = useState(false)
   const [ audioSrc, setAudioSrc ] = useState('')
-
-  const audioPlayerRef = useRef(null)
+  const [ theme, setTheme ] = useState(Config.themes[0])
 
   const [ appClasses, setAppClasses] = useState(['App'])
 
@@ -51,9 +49,9 @@ export default function App() {
     value={{ theme, isMuted, 
     isMeditating, isPlayingAudio, setIsMeditating, setIsPlayingAudio, setIsMuted }}>
       <div className={appClasses.join(' ')} style={{ backgroundColor: theme.color }}>
-        <ControlPanel setIsMuted={setIsMuted} setTheme={setTheme}/>
-        <Meditator theme={theme} isMuted={isMuted} isMeditating={isMeditating} setAudioSrc={setAudioSrc} audioPlayerRef={audioPlayerRef} />
-        <AudioPlayer audioPlayerRef={audioPlayerRef} />
+        <ControlPanel setIsMuted={setIsMuted} setTheme={setTheme} />
+        <Meditator theme={theme} isMuted={isMuted} isMeditating={isMeditating} setIsMeditating={setIsMeditating} setAudioSrc={setAudioSrc} setIsPlayingAudio={setIsPlayingAudio} />
+        <AudioPlayer audioSrc={audioSrc} isPlayingAudio={isPlayingAudio} />
       </div>
     </Context.Provider>
   )

@@ -8,57 +8,57 @@ import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-ro
 
 import '../styles/App.css'
 
-export default function Meditator({theme, isMuted, isMeditating, setAudioSrc, audioPlayerRef}) {
+export default function Meditator({theme, isMuted, isMeditating, setAudioSrc, setIsMeditating, setIsPlayingAudio}) {
   const [ meditationClasses, setMeditationClasses ] = useState(['h-50', 'w-25'])
 
-  // Meditation status and muted status determines audio activation 
-  // Then, play sound effect file associated with selected theme
-  // I.e. that audio is played, and what specifically is to be played
-  const handleMeditationClick = function(theme, isMuted, isMeditating) {
-    let newMeditationClasses
-
+  const handleMeditationClick = function(theme, isMuted, isMeditating, setIsMeditating, setMeditationClasses, setAudioSrc, setIsPlayingAudio) {
     if(!isMeditating) {
+      // Set meditation status
+      setIsMeditating(true)
+
       // Commence mediation animation
-      newMeditationClasses = meditationClasses.push('meditate')
-      setMeditationClasses(newMeditationClasses)
+      setMeditationClasses(currentClasses => [ ...currentClasses, 'meditate' ])
       
-      // Play relevant audio to selected theme; if not muted
+      // Exit before audio interaction if muted
       if(isMuted) return
-      setAudioSrc(getRelevantAudioSrc(theme)) 
+
+      // Set relevant audio src by selected theme
+      setAudioSrc(getRelevantAudioSrc(theme.name)) 
+
+      // Play audio; only once audio element has rendered
+      setIsPlayingAudio(true)
+
       return
     }
-
-    // Stop mediation animation
-    newMeditationClasses = meditationClasses.filter(_class => _class != 'meditate')
-    setMeditationClasses(newMeditationClasses)
-
-    // Cease audio if not muted
-    if(isMuted) return
-    // audioPlayerRef.stop()
   }
 
-  const getRelevantAudioSrc = function(theme) {
+  const getRelevantAudioSrc = function(themeName) {
     let relevantAudioSrc = ''
-    switch(theme) {
+    switch(themeName) {
       case 'water': 
         relevantAudioSrc = runningWaterAudioPath
         break;
-      case 'wind': break;
+      case 'wind':
         relevantAudioSrc = windInTreesAudioPath
         break;
-      case 'fire': break;
-        relevantAudioSrc = fireplaceAudioPath``
+      case 'fire':
+        relevantAudioSrc = fireplaceAudioPath
         break;
-      case 'earth': break;
+      case 'earth':
         relevantAudioSrc = tibetanBowlAudioPath
         break;
       default: break;
     }
+
+    return relevantAudioSrc
   }
 
+  useEffect(() => {
+  }, [setMeditationClasses])
+
   return (
-    <div className='Beacon h-75 w-75 p-5 mt-4 mx-auto container-fluid border d-flex flex-column align-items-center justify-content-center'>
-      <button className={meditationClasses.join(' ')} onClick={() => handleMeditationClick(theme, isMuted, isMeditating)}>
+    <div className='Meditator h-75 w-75 p-5 mt-4 mx-auto container-fluid border d-flex flex-column align-items-center justify-content-center'>
+      <button className={meditationClasses.join(' ')} onClick={() => handleMeditationClick(theme, isMuted, isMeditating, setIsMeditating, setMeditationClasses, setAudioSrc, setIsPlayingAudio)}>
         Meditate
       </button>
     </div>
