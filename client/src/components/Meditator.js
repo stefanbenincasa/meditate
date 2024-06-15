@@ -11,11 +11,8 @@ import '../styles/App.css'
 
 export default function Meditator({theme, isMuted, isMeditating, setIsMeditating}) {
   const [ meditationClasses, setMeditationClasses ] = useState(['h-50', 'w-25'])
-  const soundRef = useRef(null)
-
 
   const handleMeditationClick = function(isMuted, isMeditating, setIsMeditating, setMeditationClasses) {
-    let sound = new Howl({ src: [ getRelevantAudioSrc(theme.name)], html5: true, autoplay: false })
 
     if(isMeditating) {
       setIsMeditating(false)
@@ -48,6 +45,9 @@ export default function Meditator({theme, isMuted, isMeditating, setIsMeditating
 
       return relevantAudioSrc
   }
+
+  useEffect(() => {
+  }, [setMeditationClasses])
 
   return (
     <div className='Meditator h-75 w-75 p-5 mt-4 mx-auto container-fluid border d-flex flex-column align-items-center justify-content-center'>
