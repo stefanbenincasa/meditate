@@ -20,38 +20,6 @@ export default function Menu({theme, isMeditating, isMuted, setIsMuted, setTheme
         // If theme change while meditating ...
     }
 
-    const getRelevantAudioSrc = function(themeName) {
-        let relevantAudioSrc = ''
-        switch(themeName) {
-        case 'water': 
-            relevantAudioSrc = runningWaterAudioPath
-            break;
-        case 'wind':
-            relevantAudioSrc = windInTreesAudioPath
-            break;
-        case 'fire':
-            relevantAudioSrc = fireplaceAudioPath
-            break;
-        case 'earth':
-            relevantAudioSrc = tibetanBowlAudioPath
-            break;
-        default: break;
-        }
-
-        return relevantAudioSrc
-    }
-
-    useEffect(() => {
-        let sound = new Howl({ src: [ getRelevantAudioSrc(theme.name)], html5: true, autoplay: false })
-
-        if(isMeditating && !isMuted) {
-            sound.play()
-            return
-        }
-
-        sound.stop()
-    }, [isMeditating, isMuted])
-
     return (
         <nav className='ControlPanel row w-75 mx-auto'>
             <div className='col-8 h-100'>

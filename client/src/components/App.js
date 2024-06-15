@@ -45,7 +45,7 @@ export default function App() {
     <Context.Provider value={{ isMeditating }}>
       <div className={appClasses.join(' ')} style={{ backgroundColor: theme.color }}>
         <Menu theme={theme} isMeditating={isMeditating} isMuted={isMuted} setIsMuted={setIsMuted} setTheme={setTheme} />
-        <Meditator isMuted={isMuted} isMeditating={isMeditating} setIsMeditating={setIsMeditating} />
+        <Meditator theme={theme} isMeditating={isMeditating} isMuted={isMuted} setIsMeditating={setIsMeditating} />
       </div>
     </Context.Provider>
   )
