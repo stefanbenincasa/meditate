@@ -21,7 +21,7 @@ html, body, div[id="root"] {
   width: 100vw;
 }
 
-.Beacon button {
+.Meditator button {
   display: block;
   outline: none;
   background-color: var(--secondary-color);
