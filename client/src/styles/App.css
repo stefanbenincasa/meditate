@@ -24,9 +24,8 @@ html, body, div[id="root"] {
 .Meditator button {
   display: block;
   outline: none;
-  background-color: var(--secondary-color);
-  border: 5px solid var(--primary-color);  
   border-radius: 50%;
+  border: none;
 }
 
 

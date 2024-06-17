@@ -10,10 +10,9 @@ import { Howl, Howler } from 'howler';
 import '../styles/App.css'
 
 export default function Meditator({theme, isMuted, isMeditating, setIsMeditating}) {
-  const [ meditationClasses, setMeditationClasses ] = useState(['h-50', 'w-25'])
+  const [ meditationClasses, setMeditationClasses ] = useState(['h-50', 'w-25', 'text-white'])
 
   const handleMeditationClick = function(isMuted, isMeditating, setIsMeditating, setMeditationClasses) {
-
     if(isMeditating) {
       setIsMeditating(false)
       setMeditationClasses(currentClasses => currentClasses.filter(c => c != 'meditate'))
@@ -50,8 +49,8 @@ export default function Meditator({theme, isMuted, isMeditating, setIsMeditating
   }, [setMeditationClasses])
 
   return (
-    <div className='Meditator h-75 w-75 p-5 mt-4 mx-auto container-fluid border d-flex flex-column align-items-center justify-content-center'>
-      <button className={meditationClasses.join(' ')} onClick={() => handleMeditationClick(isMuted, isMeditating, setIsMeditating, setMeditationClasses)}>
+    <div className='Meditator h-75 w-75 p-5 mt-4 mx-auto container-fluid border d-flex flex-column align-items-center justify-content-center bg-secondary-subtle'>
+      <button className={meditationClasses.join(' ')} onClick={() => handleMeditationClick(isMuted, isMeditating, setIsMeditating, setMeditationClasses)} style={{ backgroundColor: theme.color }}>
         Meditate
       </button>
     </div>
