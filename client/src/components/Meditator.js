@@ -11,11 +11,16 @@ import '../styles/App.css'
 
 export default function Meditator({theme, isMuted}) {
   const [ isMeditating, setIsMeditating ] = useState(false)
-  const [ meditationClasses, setMeditationClasses ] = useState(['h-50', 'w-25', 'text-white'])
+  const [ audio, setAudio ] = useState(null)
 
   // const audioSrc = getAudioSrc(theme.name)
 
-  const handleMeditationClick = function() {}
+  // Note that isMeditation and audio shall persist across renders
+  const meditate = function() { 
+  }
+
+  const handleMeditationClick = function() {
+  }
 
   const getAudioSrc = function(themeName) {
     let audioSrc = ''
@@ -40,7 +45,10 @@ export default function Meditator({theme, isMuted}) {
 
   return (
     <div className='Meditator h-75 w-75 p-5 mt-4 mx-auto container-fluid border d-flex flex-column align-items-center justify-content-center bg-secondary-subtle'>
-      <button className={meditationClasses.join(' ')} onClick={handleMeditationClick} style={{ backgroundColor: theme.color }}>
+      <button 
+      className={(isMeditating ? 'meditate ' : '') + 'h-50 w-25 text-white'} 
+      onClick={handleMeditationClick} 
+      style={{ backgroundColor: theme.color }}>
         Meditate
       </button>
 
