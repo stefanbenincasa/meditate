@@ -1,20 +1,11 @@
 import React, { useEffect, useState, useContext, useRef } from 'react'
 import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-router-dom'
-import { Context } from './Context'
 
 import Config from '../assets/config.json'
 
 import '../styles/App.css'
 
-export default function Menu() {
-    const { theme, isMeditating, isMuted, setTheme, setIsMeditating, setIsMuted } = useContext(Context)
-
-    const handleColorChange = function(color) {
-        let matchedTheme = Config.themes.find(theme => theme.color === color) // Find the appropriate theme for selected color
-        setTheme(matchedTheme)
-        setIsMeditating(false)
-    }
-
+export default function Menu({setTheme, setIsMuted}) {
     return (
         <nav className='ControlPanel row w-75 mx-auto'>
             <div className='col-8 h-100'>
@@ -27,7 +18,7 @@ export default function Menu() {
                                 key={index} 
                                 className='col-2 d-inline-block border' 
                                 style={{ backgroundColor: color }}
-                                onClick={() => handleColorChange(color)}>
+                                onClick={() => setTheme(Config.themes.find(theme => theme.color === color))}>
                                 </button>
                             )
                         })
