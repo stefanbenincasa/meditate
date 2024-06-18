@@ -79,7 +79,6 @@ export default function App() {
   // Adjust audio after theme change
   useEffect(() => {
     setAudio(getAudio(getAudioSrc(theme.name)))
-    console.log(theme)
   }, [theme])
 
   // Stop or start audio after change
@@ -87,17 +86,16 @@ export default function App() {
     if(!audio) 
       return
 
-    if(isMuted) {
-      audio.stop()
-      return
-    }
-
     if(isMeditating) {
+      if(isMuted) {
+        audio.stop()
+        return
+      }
+
       audio.play()
       return
     }
 
-    audio.stop()
   }, [audio, isMuted, isMeditating])
 
   return (
