@@ -5,7 +5,7 @@ import Config from '../assets/config.json'
 
 import '../styles/App.css'
 
-export default function Menu({setTheme, setIsMuted}) {
+export default function Menu({handleColorChange, handleMuteChange}) {
     return (
         <nav className='ControlPanel row w-75 mx-auto'>
             <div className='col-8 h-100'>
@@ -18,7 +18,7 @@ export default function Menu({setTheme, setIsMuted}) {
                                 key={index} 
                                 className='col-2 d-inline-block border' 
                                 style={{ backgroundColor: color }}
-                                onClick={() => setTheme(Config.themes.find(theme => theme.color === color))}>
+                                onClick={() => handleColorChange(color)}>
                                 </button>
                             )
                         })
@@ -32,7 +32,7 @@ export default function Menu({setTheme, setIsMuted}) {
                 <div className='row'>
                     <button 
                     className='col-12 p-4 bg-secondary text-white d-flex flex-column justify-content-center align-items-center'
-                    onClick={() => setIsMuted(currentStatus => !currentStatus)}>
+                    onClick={handleMuteChange}>
                         Mute
                     </button>
                 </div> 

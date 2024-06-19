@@ -9,40 +9,7 @@ import { Context } from './Context'
 
 import '../styles/App.css'
 
-export default function Meditator({theme, isMuted}) {
-  const [ isMeditating, setIsMeditating ] = useState(false)
-  const [ audio, setAudio ] = useState(null)
-
-  // const audioSrc = getAudioSrc(theme.name)
-
-  // Note that isMeditation and audio shall persist across renders
-  const meditate = function() { 
-  }
-
-  const handleMeditationClick = function() {
-  }
-
-  const getAudioSrc = function(themeName) {
-    let audioSrc = ''
-    switch(themeName) {
-      case 'water': 
-            audioSrc = runningWaterAudioPath
-            break;
-        case 'wind':
-            audioSrc = windInTreesAudioPath
-            break;
-        case 'fire':
-            audioSrc = fireplaceAudioPath
-            break;
-        case 'earth':
-            audioSrc = tibetanBowlAudioPath
-            break;
-        default: break;
-    }
-
-    return audioSrc
-  }
-
+export default function Meditator({theme, isMuted, isMeditating, handleMeditationClick}) {
   return (
     <div className='Meditator h-75 w-75 p-5 mt-4 mx-auto container-fluid border d-flex flex-column align-items-center justify-content-center bg-secondary-subtle'>
       <button 
@@ -51,10 +18,6 @@ export default function Meditator({theme, isMuted}) {
       style={{ backgroundColor: theme.color }}>
         Meditate
       </button>
-
-      <audio>
-        <source src={getAudioSrc(theme.name)}></source>
-      </audio>
     </div>
   )
 }
