@@ -31,11 +31,9 @@ import '../styles/App.css'
 
 export default function App() {
   const [ theme, setTheme ] = useState(Config.themes[0])
-  const [ isMuted, setIsMuted ] = useState(false)
-  const [ isMeditating, setIsMeditating ] = useState(false)
   const [ audio, setAudio ] = useState(null)
-
-  const [ appClasses, setAppClasses ] = useState(['App', 'p-5 m-auto container-fluid d-flex flex-column align-items-center justify-content-center'])
+  const [ hasSound, setHasSound ] = useState(true)
+  const [ isMeditating, setIsMeditating ] = useState(false)
 
   const handleColorChange = function(color) {
     let selectedTheme = Config.themes.find(theme => theme.color === color) // Find new them by color
@@ -51,14 +49,14 @@ export default function App() {
     }
   }
 
-  const handleMuteChange = function() {
-    let newMuteStatus = !isMuted
-    newMuteStatus ? audio.mute(true) : audio.mute(false) // Cut audio if meditating; do not stop meditating 
-    setIsMuted(newMuteStatus)
+  const handleSoundPermitChange = function() {
+    let newHasSoundValue = !hasSound
+    newHasSoundValue ? audio.mute(false) : audio.mute(true) // Cut audio if meditating; do not stop meditating 
+    setHasSound(newHasSoundValue)
   }
 
   const handleMeditationClick = function() {
-    if(!isMuted) {
+    if(hasSound) {
       if(isMeditating) {
         audio.stop() // Stop audio on meditation and if unmuted
       }
@@ -105,12 +103,17 @@ export default function App() {
   }, [ setAudio ])
 
   useEffect(() => {
-  }, [ isMuted ])
+    console.log('HasSound:', hasSound)
+  }, [ hasSound ])
+
+  useEffect(() => {
+    console.log('IsMeditating:', isMeditating)
+  }, [ isMeditating ])
 
   return (
-    <div className={appClasses.join(' ')} style={{ backgroundColor: theme.color }}>
-      <Menu handleColorChange={handleColorChange} handleMuteChange={handleMuteChange} />
-      <Meditator theme={theme} isMuted={isMuted} isMeditating={isMeditating} handleMeditationClick={handleMeditationClick} />
+    <div className='App p-5 m-auto container-fluid d-flex flex-column align-items-center justify-content-center' style={{ backgroundColor: theme.color }}>
+      <Menu handleColorChange={handleColorChange} handleSoundPermitChange={handleSoundPermitChange} />
+      <Meditator theme={theme} isMeditating={isMeditating} handleMeditationClick={handleMeditationClick} />
     </div>
   )
 }

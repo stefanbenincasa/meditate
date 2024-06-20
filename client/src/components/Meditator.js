@@ -9,7 +9,7 @@ import { Context } from './Context'
 
 import '../styles/App.css'
 
-export default function Meditator({theme, isMuted, isMeditating, handleMeditationClick}) {
+export default function Meditator({theme, isMeditating, handleMeditationClick}) {
   return (
     <div className='Meditator h-75 w-75 p-5 mt-4 mx-auto container-fluid border d-flex flex-column align-items-center justify-content-center bg-secondary-subtle'>
       <button 
