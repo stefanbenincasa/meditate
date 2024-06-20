@@ -23,6 +23,7 @@ import '../styles/App.css'
    [X] Toggles for colors 
 
    [] Play sound inline with theme 
+      BUG: IF already meditating, and then App is unmuted from mute, no sound plays []
 
    [] Advertisement integration; ethically
    [] Responsiveness; for now, handle mobile case with Error
@@ -32,11 +33,13 @@ import '../styles/App.css'
 export default function App() {
   const [ theme, setTheme ] = useState(Config.themes[0])
   const [ audio, setAudio ] = useState(null)
-  const [ hasSound, setHasSound ] = useState(true)
+
+  const [ willAllowSound, setWillAllowSound] = useState(true)
+  const [ isPlayingSound, setIsPlayingSound ] = useState(false)
   const [ isMeditating, setIsMeditating ] = useState(false)
 
   const handleColorChange = function(color) {
-    let selectedTheme = Config.themes.find(theme => theme.color === color) // Find new them by color
+    let selectedTheme = Config.themes.find(theme => theme.color === color) // Find new theme by color
 
     setTheme(selectedTheme) // Set theme inline with selection
 
@@ -44,28 +47,40 @@ export default function App() {
 
     if(isMeditating) { 
       setIsMeditating(false) // Stop meditating 
-      audio.stop() // Cut audio only when meditating
-      return
+      if(isPlayingSound) audio.stop() // Cut audio only when meditating
     }
   }
 
   const handleSoundPermitChange = function() {
-    let newHasSoundValue = !hasSound
-    newHasSoundValue ? audio.mute(false) : audio.mute(true) // Cut audio if meditating; do not stop meditating 
-    setHasSound(newHasSoundValue)
+    let soundAllowanceIntent = !willAllowSound, newWillAllowSoundValue = null
+
+    if(soundAllowanceIntent) {
+      audio.mute(false)
+      newWillAllowSoundValue = true
+    }
+    else {
+      audio.mute(true)
+      newWillAllowSoundValue = false 
+    }
+
+    setWillAllowSound(newWillAllowSoundValue)
   }
 
   const handleMeditationClick = function() {
-    if(hasSound) {
-      if(isMeditating) {
-        audio.stop() // Stop audio on meditation and if unmuted
-      }
-      else {
-        audio.play() // Play audio on meditation and if unmuted
-      }
-    }
+    let meditationIntent = !isMeditating, newMeditationValue = null
 
-    setIsMeditating(currentStatus => !currentStatus)
+    if(meditationIntent) {
+      audio.play()
+      newMeditationValue = true
+      setIsPlayingSound(willAllowSound) 
+    } 
+    else {
+      audio.stop()
+      newMeditationValue = false
+      setIsPlayingSound(false)
+    } 
+
+    setIsMeditating(newMeditationValue)
   }
 
   const getAudioSrc = function(themeName) {
@@ -103,8 +118,12 @@ export default function App() {
   }, [ setAudio ])
 
   useEffect(() => {
-    console.log('HasSound:', hasSound)
-  }, [ hasSound ])
+    console.log('WillAllowSound:', willAllowSound)
+  }, [ willAllowSound ])
+  
+  useEffect(() => {
+    console.log('IsPlayingSound:', isPlayingSound)
+  }, [ isPlayingSound ])
 
   useEffect(() => {
     console.log('IsMeditating:', isMeditating)
