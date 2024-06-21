@@ -21,10 +21,11 @@ import '../styles/App.css'
    [X] Context API implementation
    [X] Main meditation element
    [X] Toggles for colors 
+   [X] Play sound inline with theme 
 
-   [] Play sound inline with theme 
-      BUG: IF already meditating, and then App is unmuted from mute, no sound plays []
+   [] Desktop UI
 
+   [] Mobile UI
    [] Advertisement integration; ethically
    [] Responsiveness; for now, handle mobile case with Error
 
@@ -43,47 +44,44 @@ export default function App() {
 
     setTheme(selectedTheme) // Set theme inline with selection
 
-    setAudio(getAudio(getAudioSrc(selectedTheme.name))) // Set new audio source inline with theme
+    let newAudio = getAudio(selectedTheme.name) // Set new audio source inline with theme
+    audio._muted && newAudio.mute(true) // Carry over mute status to new audio instance; new audio is default unmuted
+    setAudio(newAudio)
 
     if(isMeditating) { 
       setIsMeditating(false) // Stop meditating 
-      if(isPlayingSound) audio.stop() // Cut audio only when meditating
+      if(isPlayingSound) {
+        audio.stop() // Cut audio only when meditating
+        setIsPlayingSound(false)
+      }
     }
   }
 
-  const handleSoundPermitChange = function() {
-    let soundAllowanceIntent = !willAllowSound, newWillAllowSoundValue = null
+  const handleSoundAllowanceChange = function() {
+    let soundAllowanceIntent = !willAllowSound
 
-    if(soundAllowanceIntent) {
-      audio.mute(false)
-      newWillAllowSoundValue = true
-    }
-    else {
-      audio.mute(true)
-      newWillAllowSoundValue = false 
-    }
+    soundAllowanceIntent ? audio.mute(false) : audio.mute(true)
 
-    setWillAllowSound(newWillAllowSoundValue)
+    setIsPlayingSound(soundAllowanceIntent)
+    setWillAllowSound(soundAllowanceIntent)
   }
 
   const handleMeditationClick = function() {
-    let meditationIntent = !isMeditating, newMeditationValue = null
+    let meditationIntent = !isMeditating
 
     if(meditationIntent) {
       audio.play()
-      newMeditationValue = true
       setIsPlayingSound(willAllowSound) 
     } 
     else {
       audio.stop()
-      newMeditationValue = false
       setIsPlayingSound(false)
     } 
 
-    setIsMeditating(newMeditationValue)
+    setIsMeditating(meditationIntent)
   }
 
-  const getAudioSrc = function(themeName) {
+  const getAudio = function(themeName) {
     let audioSrc = ''
     switch(themeName) {
       case 'water': 
@@ -101,10 +99,6 @@ export default function App() {
         default: break;
     }
 
-    return audioSrc
-  }
-
-  const getAudio = function(audioSrc) { 
     return new Howl({
       src: [ audioSrc ],
       autoplay: false,
@@ -114,24 +108,12 @@ export default function App() {
   }
 
   useEffect(() => {
-    setAudio(getAudio(getAudioSrc(theme.name)))
+    setAudio(getAudio(theme.name))
   }, [ setAudio ])
-
-  useEffect(() => {
-    console.log('WillAllowSound:', willAllowSound)
-  }, [ willAllowSound ])
-  
-  useEffect(() => {
-    console.log('IsPlayingSound:', isPlayingSound)
-  }, [ isPlayingSound ])
-
-  useEffect(() => {
-    console.log('IsMeditating:', isMeditating)
-  }, [ isMeditating ])
 
   return (
     <div className='App p-5 m-auto container-fluid d-flex flex-column align-items-center justify-content-center' style={{ backgroundColor: theme.color }}>
-      <Menu handleColorChange={handleColorChange} handleSoundPermitChange={handleSoundPermitChange} />
+      <Menu handleColorChange={handleColorChange} handleSoundAllowanceChange={handleSoundAllowanceChange} />
       <Meditator theme={theme} isMeditating={isMeditating} handleMeditationClick={handleMeditationClick} />
     </div>
   )

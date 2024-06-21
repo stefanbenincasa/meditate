@@ -5,7 +5,7 @@ import Config from '../assets/config.json'
 
 import '../styles/App.css'
 
-export default function Menu({handleColorChange, handleSoundPermitChange}) {
+export default function Menu({handleColorChange, handleSoundAllowanceChange}) {
     return (
         <nav className='ControlPanel row w-75 mx-auto'>
             <div className='col-8 h-100'>
@@ -32,7 +32,7 @@ export default function Menu({handleColorChange, handleSoundPermitChange}) {
                 <div className='row'>
                     <button 
                     className='col-12 p-4 bg-secondary text-white d-flex flex-column justify-content-center align-items-center'
-                    onClick={handleSoundPermitChange}>
+                    onClick={handleSoundAllowanceChange}>
                         Mute
                     </button>
                 </div> 
