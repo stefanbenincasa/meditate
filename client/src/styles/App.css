@@ -48,11 +48,17 @@ html, body, div[id="root"] {
   color: white;
   box-shadow: none;
 }
-
 .error-suggestion {
   border: 3px solid var(--accent-color);
   color: var(--accent-color);
   box-shadow: none;
+}
+
+.icon-white {
+  color: white !important;
+}
+.icon-white::before {
+  color: white;
 }
 
 .meditate {
@@ -71,7 +77,6 @@ html, body, div[id="root"] {
 .text-primary {
   color: var(--primary-color) !important;
 }
-
 .text-danger {
   color: var(--accent-color) !important;
 }

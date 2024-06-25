@@ -24,6 +24,7 @@ import '../styles/App.css'
    [X] Play sound inline with theme 
 
    [] Desktop UI
+    [] Max width
 
    [] Mobile UI
    [] Advertisement integration; ethically
@@ -113,7 +114,7 @@ export default function App() {
 
   return (
     <div className='App p-5 m-auto container-fluid d-flex flex-column align-items-center justify-content-center' style={{ backgroundColor: theme.color }}>
-      <Menu handleColorChange={handleColorChange} handleSoundAllowanceChange={handleSoundAllowanceChange} />
+      <Menu handleColorChange={handleColorChange} handleSoundAllowanceChange={handleSoundAllowanceChange} willAllowSound={willAllowSound} />
       <Meditator theme={theme} isMeditating={isMeditating} handleMeditationClick={handleMeditationClick} />
     </div>
   )

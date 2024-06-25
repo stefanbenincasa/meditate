@@ -3,9 +3,12 @@ import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-ro
 
 import Config from '../assets/config.json'
 
+import soundAllowedIcon from '../assets/icons/volume-up-fill.svg'
+import soundNotAllowedIcon from '../assets/icons/volume-mute-fill.svg'
+
 import '../styles/App.css'
 
-export default function Menu({handleColorChange, handleSoundAllowanceChange}) {
+export default function Menu({handleColorChange, handleSoundAllowanceChange, willAllowSound}) {
     return (
         <nav className='ControlPanel row w-75 mx-auto'>
             <div className='col-8 h-100'>
@@ -33,7 +36,6 @@ export default function Menu({handleColorChange, handleSoundAllowanceChange}) {
                     <button 
                     className='col-12 p-4 bg-secondary text-white d-flex flex-column justify-content-center align-items-center'
                     onClick={handleSoundAllowanceChange}>
-                        Mute
                     </button>
                 </div> 
             </div>
