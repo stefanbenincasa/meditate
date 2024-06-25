@@ -24,7 +24,11 @@ import '../styles/App.css'
    [X] Play sound inline with theme 
 
    [] Desktop UI
-    [] Max width
+    [] Mute styling; icon and style
+    [] Theme styling; icon and style
+
+    [] Overall styling
+      [] Max width
 
    [] Mobile UI
    [] Advertisement integration; ethically
