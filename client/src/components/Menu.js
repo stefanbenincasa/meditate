@@ -7,31 +7,19 @@ import '../styles/App.css'
 
 export default function Menu({handleColorChange, handleSoundAllowanceChange, willAllowSound}) {
     return (
-        <nav className='ControlPanel row w-75 mx-auto'>
-            <div className='col-8 h-100'>
+        <nav className='ControlPanel row w-75'>
+            <div className='col-2 h-100 me-3'>
                 <div className='row h-100'>
-                    <label className='col-4 p-4 bg-secondary text-white d-flex flex-column justify-content-center align-items-center'>X</label>
-                    { 
-                        Config.themes.map(theme => theme.color).map((color, index) => {
-                            return (
-                                <button 
-                                key={index} 
-                                className='col-2 d-inline-block border' 
-                                style={{ backgroundColor: color }}
-                                onClick={() => handleColorChange(color)}>
-                                </button>
-                            )
-                        })
-                    }
+                    <button className='col-44 p-4 btn d-flex flex-column justify-content-center align-items-center text-bg-secondary'>
+                        <i className='bi bi-palette-fill border-none' style={{ fontSize: '2rem' }}></i>
+                    </button>
                 </div>
             </div>
-
-            <div className='col'></div>
 
             <div className='col-2'>
                 <div className='row'>
                     <button 
-                    className='col-12 p-4 bg-secondary text-white d-flex flex-column justify-content-center align-items-center'
+                    className='col-12 p-4 btn d-flex flex-column justify-content-center align-items-center text-bg-secondary'
                     onClick={handleSoundAllowanceChange}>
                         { 
                             willAllowSound ? 
@@ -41,6 +29,24 @@ export default function Menu({handleColorChange, handleSoundAllowanceChange, wil
                     </button>
                 </div> 
             </div>
+
+            <div className='col-8'></div>
         </nav>     
     )
 }
+
+/*
+
+    { 
+        Config.themes.map(theme => theme.color).map((color, index) => {
+            return (
+                <button 
+                key={index} 
+                className='col-2 d-inline-block border' 
+                style={{ backgroundColor: color }}
+                onClick={() => handleColorChange(color)}>
+                </button>
+            )
+        })
+    }
+*/

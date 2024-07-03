@@ -33,33 +33,6 @@ html, body, div[id="root"] {
 .bg-primary {
   background-color: var(--primary-color) !important;
 }
-.btn-primary {
-  background-color: var(--primary-color) !important;
-  border: none;
-}
-.btn-secondary { 
-  background-color: var(--secondary-color) !important;
-  border: none;
-}
-
-.error {
-  border: 2px solid var(--accent-color);
-  background-color: var(--accent-color);
-  color: white;
-  box-shadow: none;
-}
-.error-suggestion {
-  border: 3px solid var(--accent-color);
-  color: var(--accent-color);
-  box-shadow: none;
-}
-
-.icon-white {
-  color: white !important;
-}
-.icon-white::before {
-  color: white;
-}
 
 .meditate {
   animation-name: meditate;
