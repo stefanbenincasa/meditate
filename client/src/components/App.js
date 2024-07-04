@@ -35,8 +35,6 @@ import '../styles/App.css'
     [] Touchups
 
    [] Advertisement integration; ethically
-   [] Responsiveness; for now, handle mobile case with Error
-
 */
 
 export default function App() {
