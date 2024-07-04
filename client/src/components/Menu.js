@@ -6,13 +6,47 @@ import Config from '../assets/config.json'
 import '../styles/App.css'
 
 export default function Menu({handleColorChange, handleSoundAllowanceChange, willAllowSound}) {
+    const [ hasModal, setHasModal ] = useState(false)
+
     return (
         <nav className='ControlPanel row w-75'>
             <div className='col-2 h-100 me-3'>
                 <div className='row h-100'>
-                    <button className='col-44 p-4 btn d-flex flex-column justify-content-center align-items-center text-bg-secondary'>
+                    <button 
+                    className='col-44 p-4 btn d-flex flex-column justify-content-center align-items-center text-bg-secondary'
+                    onClick={() => setHasModal(true)}> 
                         <i className='bi bi-palette-fill border-none' style={{ fontSize: '2rem' }}></i>
                     </button>
+                </div>
+            </div>
+
+            <div className='modal bg-light bg-opacity-75 ' id='themeModal' style={{ display: hasModal ? 'block' : 'none'}} onClick={() => setHasModal(false)}>
+                <div className='modal-dialog h-100 w-75 d-flex align-items-center'>
+                    <div className='modal-content h-50'>
+                        <div className='modal-header text-bg-secondary' style={{ border: 'none' }}>
+                            <h1 className='modal-title fs-5'>Theme Select</h1>
+                            <button className='btn' onClick={() => setHasModal(false)}>X</button>
+                        </div>
+                        <div className='modal-body bg-secondary'>
+                            <div className='container-fluid h-100'>
+                                <div className='row h-100 p-5'>
+                                    {
+                                        Config.themes.map(theme => theme.color).map((color, index) => {
+                                            return (
+                                                <button 
+                                                key={index} 
+                                                className='col d-inline-block border' 
+                                                style={{ backgroundColor: color }}
+                                                onClick={() => handleColorChange(color)}>
+                                                </button>
+                                            )
+                                    
+                                        })
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -34,19 +68,3 @@ export default function Menu({handleColorChange, handleSoundAllowanceChange, wil
         </nav>     
     )
 }
-
-/*
-
-    { 
-        Config.themes.map(theme => theme.color).map((color, index) => {
-            return (
-                <button 
-                key={index} 
-                className='col-2 d-inline-block border' 
-                style={{ backgroundColor: color }}
-                onClick={() => handleColorChange(color)}>
-                </button>
-            )
-        })
-    }
-*/
