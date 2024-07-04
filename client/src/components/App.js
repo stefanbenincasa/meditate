@@ -23,14 +23,17 @@ import '../styles/App.css'
    [X] Toggles for colors 
    [X] Play sound inline with theme 
 
-   [] Desktop UI
-    [] Mute styling; icon and style
-    [] Theme styling; icon and style
-
-    [] Overall styling
-      [] Max width
+   [X] Desktop UI
+    [X] Mute styling; icon and style
+    [X] Theme styling; icon and style
 
    [] Mobile UI
+
+   [] Overall styling
+    [] Max width
+    [] Color animations
+    [] Touchups
+
    [] Advertisement integration; ethically
    [] Responsiveness; for now, handle mobile case with Error
 
