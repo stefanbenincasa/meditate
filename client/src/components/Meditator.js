@@ -16,7 +16,7 @@ export default function Meditator({theme, isMeditating, handleMeditationClick}) 
       className={(isMeditating ? 'meditate ' : '') + 'h-50 w-25 text-white'} 
       onClick={handleMeditationClick} 
       style={{ backgroundColor: theme.color }}>
-        { isMeditating ? 'Stop Meditating' : 'Meditate' }
+        { isMeditating ? 'Stop' : 'Meditate' }
       </button>
     </div>
   )
