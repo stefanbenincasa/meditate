@@ -3,6 +3,7 @@
 :root {
   --primary-color: #9EE493;
   --secondary-color: #DAF7DC;
+  font-size: 12px;
 }
 
 html, body, div[id="root"] {
@@ -22,10 +23,8 @@ html, body, div[id="root"] {
 }
 
 .Meditator button {
-  display: block;
   outline: none;
   border-radius: 50%;
-  border: none;
 }
 
 
@@ -66,30 +65,21 @@ html, body, div[id="root"] {
   100% { transform: scale(1, 1); }
 }
 
-/* 
-  Media Queries 
-  @media screen and (min-width: 0px) and (max-width: 576px) {
-    :root { font-size: 0.75rem; }
-  }
+/* Media Queries */
+@media screen and (min-width: 0px) and (max-width: 576px) {
+  :root { font-size: 0.75rem; }
+  .Meditator button { height: 50%; width: 75%; font-size: 1rem; }
+}
 
-  @media screen and (min-width: 577px) and (max-width: 768px) {
-    :root { font-size: 0.88rem; }
-  }
+@media screen and (min-width: 577px) and (max-width: 768px) {
+  :root { font-size: 1rem; }
+}
 
-  @media screen and (min-width: 769px) and (max-width: 1365px) {
-    :root { font-size: 0.88rem; }
-  }
+@media screen and (min-width: 769px) and (max-width: 1365px) {
+  :root { font-size: 1rem; }
+}
 
-  @media screen and (min-width: 1366px) {
-    :root { font-size: 0.88rem; }
-  }
-
-
-  @media screen and (min-height: 0px) and (max-height: 300px) and (min-width: 1366px) {
-    :root { font-size: 0.5rem; }
-  }
-
-  @media screen and (min-height: 301px) and (max-height: 600px) and (min-width: 1366px) {
-    :root { font-size: 0.75rem; }
-  }
-*/
+@media screen and (min-width: 1366px) {
+  :root { font-size: 1.25rem; }
+  .Meditator button { height: 50%; width: 25%; font-size: 1.5rem; }
+}

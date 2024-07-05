@@ -13,7 +13,7 @@ export default function Meditator({theme, isMeditating, handleMeditationClick}) 
   return (
     <div className='Meditator h-75 w-75 p-5 mt-4 mx-auto container-fluid border d-flex flex-column align-items-center justify-content-center bg-secondary-subtle rounded'>
       <button 
-      className={(isMeditating ? 'meditate ' : '') + 'h-50 w-25 text-white'} 
+      className={(isMeditating ? 'meditate ' : '') + 'p-5 d-block border border-0 text-white'} 
       onClick={handleMeditationClick} 
       style={{ backgroundColor: theme.color }}>
         { isMeditating ? 'Stop' : 'Meditate' }
