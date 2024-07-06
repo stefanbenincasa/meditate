@@ -1,9 +1,10 @@
 /* Blocks */
 
-:root {
+html {
+  font-size: 12px;
+
   --primary-color: #9EE493;
   --secondary-color: #DAF7DC;
-  font-size: 12px;
 }
 
 html, body, div[id="root"] {
@@ -12,7 +13,10 @@ html, body, div[id="root"] {
   padding: 0;
 
   box-sizing: border-box;
-  font-size: 1rem;
+}
+
+i {
+  font-size: 2vw;
 }
 
 /* Elements */
@@ -25,8 +29,8 @@ html, body, div[id="root"] {
 .Meditator button {
   outline: none;
   border-radius: 50%;
+  font-size: 2vw;
 }
-
 
 /* Modifiers */
 .bg-primary {
@@ -42,20 +46,13 @@ html, body, div[id="root"] {
   animation-name: meditate;
   animation-duration: 4s;
   animation-iteration-count: infinite;
-  animation-delay: 0s;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
+  animation-delay: 0s;
 } 
 
 .overflow-x-scroll {
   overflow-x: scroll;
-}
-
-.text-primary {
-  color: var(--primary-color) !important;
-}
-.text-danger {
-  color: var(--accent-color) !important;
 }
 
 /* Animation */
@@ -67,19 +64,13 @@ html, body, div[id="root"] {
 
 /* Media Queries */
 @media screen and (min-width: 0px) and (max-width: 576px) {
-  :root { font-size: 0.75rem; }
-  .Meditator button { height: 50%; width: 75%; font-size: 1rem; }
 }
 
 @media screen and (min-width: 577px) and (max-width: 768px) {
-  :root { font-size: 1rem; }
 }
 
 @media screen and (min-width: 769px) and (max-width: 1365px) {
-  :root { font-size: 1rem; }
 }
 
 @media screen and (min-width: 1366px) {
-  :root { font-size: 1.25rem; }
-  .Meditator button { height: 50%; width: 25%; font-size: 1.5rem; }
 }

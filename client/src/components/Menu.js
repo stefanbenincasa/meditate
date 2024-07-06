@@ -15,9 +15,23 @@ export default function Menu({handleColorChange, handleSoundAllowanceChange, wil
                     <button 
                     className='col-44 p-4 btn d-flex flex-column justify-content-center align-items-center text-bg-secondary'
                     onClick={() => setHasModal(true)}> 
-                        <i className='bi bi-palette-fill border-none' style={{ fontSize: '2rem' }}></i>
+                        <i className='bi bi-palette-fill border-none'></i>
                     </button>
                 </div>
+            </div>
+
+            <div className='col-2'>
+                <div className='row'>
+                    <button 
+                    className='col-12 p-4 btn d-flex flex-column justify-content-center align-items-center text-bg-secondary'
+                    onClick={handleSoundAllowanceChange}>
+                        { 
+                            willAllowSound ? 
+                            <i className='bi bi-volume-up-fill'></i> : 
+                            <i className='bi bi-volume-mute-fill'></i> 
+                        }
+                    </button>
+                </div> 
             </div>
 
             <div className='modal bg-light bg-opacity-75 ' id='themeModal' style={{ display: hasModal ? 'block' : 'none'}} onClick={() => setHasModal(false)}>
@@ -48,20 +62,6 @@ export default function Menu({handleColorChange, handleSoundAllowanceChange, wil
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div className='col-2'>
-                <div className='row'>
-                    <button 
-                    className='col-12 p-4 btn d-flex flex-column justify-content-center align-items-center text-bg-secondary'
-                    onClick={handleSoundAllowanceChange}>
-                        { 
-                            willAllowSound ? 
-                            <i className='bi bi-volume-up-fill' style={{ fontSize: '2rem' }}></i> : 
-                            <i className='bi bi-volume-mute-fill' style={{ fontSize: '2rem' }}></i> 
-                        }
-                    </button>
-                </div> 
             </div>
 
             <div className='col-8'></div>

@@ -28,7 +28,7 @@ import '../styles/App.css'
     [X] Theme styling; icon and style
 
    [] Mobile UI
-    [] Breakpoint heights and widths
+    [] Animation bug 
     [] Modal issue
 
    [] Overall styling
@@ -120,7 +120,7 @@ export default function App() {
   }, [ setAudio ])
 
   return (
-    <div className='App m-auto container-fluid d-flex flex-column align-items-center justify-content-center' style={{ backgroundColor: theme.color }}>
+    <div className='App m-auto container-fluid d-flex flex-column align-items-center justify-content-center bg-secondary-subtle'>
       <Menu handleColorChange={handleColorChange} handleSoundAllowanceChange={handleSoundAllowanceChange} willAllowSound={willAllowSound} />
       <Meditator theme={theme} isMeditating={isMeditating} handleMeditationClick={handleMeditationClick} />
     </div>
