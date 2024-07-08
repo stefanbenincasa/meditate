@@ -16,7 +16,7 @@ html, body, div[id="root"] {
 }
 
 i {
-  font-size: 2vw;
+  font-size: 3vw;
 }
 
 /* Elements */
@@ -27,9 +27,11 @@ i {
 }
 
 .Meditator button {
+  height: 50vh; width: 50vw;
+
   outline: none;
   border-radius: 50%;
-  font-size: 2vw;
+  font-size: 3vw;
 }
 
 /* Modifiers */
@@ -58,7 +60,7 @@ i {
 /* Animation */
 @keyframes meditate {
   33% { transform: scale(1, 1); }
-  66% { transform: scale(1.5, 1.5); }
+  66% { transform: scale(1.25, 1.25); }
   100% { transform: scale(1, 1); }
 }
 

@@ -28,7 +28,7 @@ import '../styles/App.css'
     [X] Theme styling; icon and style
 
    [] Mobile UI
-    [] Animation bug 
+    [X] Animation bug; dynamic text sizing and h/w issue
     [] Modal issue
 
    [] Overall styling
