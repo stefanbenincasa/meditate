@@ -27,16 +27,14 @@ import '../styles/App.css'
     [X] Mute styling; icon and style
     [X] Theme styling; icon and style
 
-   [] Mobile UI
+   [X] Mobile UI
     [X] Animation bug; dynamic text sizing and h/w issue
-    [] Modal issue
+    [X] Modal issue
 
    [] Overall styling
     [] Max width
     [] Color animations
     [] Touchups
-
-   [] Advertisement integration; ethically
 */
 
 export default function App() {

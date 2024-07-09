@@ -34,14 +34,16 @@ export default function Menu({handleColorChange, handleSoundAllowanceChange, wil
                 </div> 
             </div>
 
-            <div className='modal bg-light bg-opacity-75 ' id='themeModal' style={{ display: hasModal ? 'block' : 'none'}} onClick={() => setHasModal(false)}>
+            <div className='col-8'></div>
+
+            <div className={'modal bg-light bg-opacity-75' + (hasModal ? ' d-flex justify-content-center align-items-center' : '')} style={{ overflow: 'hidden'}} id='themeModal' onClick={() => setHasModal(false)}>
                 <div className='modal-dialog h-100 w-75 d-flex align-items-center'>
                     <div className='modal-content h-50'>
-                        <div className='modal-header text-bg-secondary' style={{ border: 'none' }}>
-                            <h1 className='modal-title fs-5'>Theme Select</h1>
-                            <button className='btn' onClick={() => setHasModal(false)}>X</button>
+                        <div className='modal-header text-bg-secondary px-3' style={{ border: 'none' }}>
+                            <h1 className='modal-title fs-3'>Theme Select</h1>
+                            <button className='btn p-0' onClick={() => setHasModal(false)}>X</button>
                         </div>
-                        <div className='modal-body bg-secondary'>
+                        <div className='modal-body bg-secondary p-0'>
                             <div className='container-fluid h-100'>
                                 <div className='row h-100 p-5'>
                                     {
@@ -49,7 +51,7 @@ export default function Menu({handleColorChange, handleSoundAllowanceChange, wil
                                             return (
                                                 <button 
                                                 key={index} 
-                                                className='col d-inline-block border' 
+                                                className='col-6 d-inline-block border' 
                                                 style={{ backgroundColor: color }}
                                                 onClick={() => handleColorChange(color)}>
                                                 </button>
@@ -63,8 +65,6 @@ export default function Menu({handleColorChange, handleSoundAllowanceChange, wil
                     </div>
                 </div>
             </div>
-
-            <div className='col-8'></div>
         </nav>     
     )
 }
