@@ -33,7 +33,6 @@ import '../styles/App.css'
 
    [] Overall styling
     [] Color animations
-    [] Touchups
 */
 
 export default function App() {

@@ -11,7 +11,7 @@ import '../styles/App.css'
 
 export default function Meditator({theme, isMeditating, handleMeditationClick}) {
   return (
-    <div className='Meditator h-75 w-75 p-5 mt-4 mx-auto container-fluid border-0 d-flex flex-column align-items-center justify-content-center rounded' style={{ backgroundColor: theme.color}}>
+    <div className='Meditator h-75 w-75 p-5 my-5 mx-auto container-fluid border-0 d-flex flex-column align-items-center justify-content-center rounded' style={{ backgroundColor: theme.color}}>
       <button 
       className={(isMeditating ? 'meditate ' : '') + 'p-5 d-block border-0'} 
       onClick={handleMeditationClick} 

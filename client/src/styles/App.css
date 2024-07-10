@@ -27,8 +27,7 @@ i {
 }
 
 .Meditator button {
-  height: 50vh; width: 50vw;
-
+  height: 35vh; width: 35vw; 
   outline: none;
   border-radius: 50%;
   font-size: 3vw;
