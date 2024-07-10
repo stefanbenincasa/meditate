@@ -32,7 +32,6 @@ import '../styles/App.css'
     [X] Modal issue
 
    [] Overall styling
-    [] Max width
     [] Color animations
     [] Touchups
 */
@@ -118,7 +117,7 @@ export default function App() {
   }, [ setAudio ])
 
   return (
-    <div className='App m-auto container-fluid d-flex flex-column align-items-center justify-content-center bg-secondary-subtle'>
+    <div className='App m-auto p-5 container-fluid d-flex flex-column align-items-center justify-content-center bg-secondary-subtle'>
       <Menu handleColorChange={handleColorChange} handleSoundAllowanceChange={handleSoundAllowanceChange} willAllowSound={willAllowSound} />
       <Meditator theme={theme} isMeditating={isMeditating} handleMeditationClick={handleMeditationClick} />
     </div>
