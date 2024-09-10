@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "./static/css/main.9a36fe98.css",
+    "main.js": "./static/js/main.536240ed.js",
+    "static/media/fireplace.mp3": "./static/media/fireplace.02613a57bed8cd362cde.mp3",
+    "static/media/wind-in-trees-chimes.mp3": "./static/media/wind-in-trees-chimes.fd7acdb5b4cce9488418.mp3",
+    "static/media/running-water.mp3": "./static/media/running-water.23793f76bb7d07d8471d.mp3",
+    "static/media/tibetan-bowl.mp3": "./static/media/tibetan-bowl.85bdbf366635d3e4f427.mp3",
+    "index.html": "./index.html",
+    "main.9a36fe98.css.map": "./static/css/main.9a36fe98.css.map",
+    "main.536240ed.js.map": "./static/js/main.536240ed.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9a36fe98.css",
+    "static/js/main.536240ed.js"
+  ]
+}
